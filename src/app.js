@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
-    res.send('Hello From Invoice Generator Server');
+  res.send('Hello From Invoice Generator Server');
 });
 
 // Routes
