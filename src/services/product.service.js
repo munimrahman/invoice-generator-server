@@ -26,7 +26,7 @@ exports.deleteSingleProductService = async (id) => {
 };
 
 // TODO: Delete Many
-exports.deleteManyProductService = async (id) => {
-  const result = await Product.deleteMany();
+exports.deleteManyProductService = async (ids) => {
+  const result = await Product.deleteMany({ _id: ids });
   return result;
 };
