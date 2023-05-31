@@ -13,7 +13,7 @@ const productSchema = new Schema(
     },
     productCode: {
       type: String,
-      required: [true, 'Product Code is Required'],
+      required: true,
     },
     category: {
       type: String,

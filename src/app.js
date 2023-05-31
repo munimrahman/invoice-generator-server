@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const notFoundHandler = require('./utils/notFoundHandler');
 const globalErrorHandler = require('./utils/globalErrorHandler');
+const router = require('./routes');
 
 const app = express();
 
@@ -14,8 +15,7 @@ app.get('/', (req, res) => {
   res.send('Hello From Invoice Generator Server');
 });
 
-// Routes
-// app.use('/', userRouter, jobRouter, managerRoute, adminRouter);
+app.use('', router);
 
 app.all('*', notFoundHandler);
 app.use(globalErrorHandler);
