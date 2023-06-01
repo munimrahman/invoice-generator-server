@@ -6,7 +6,10 @@ exports.createProductService = async (data) => {
 };
 
 exports.editProductService = async (id, data) => {
-  const updatedProduct = await Product.findByIdAndUpdate(id, data, { runValidators: true });
+  const updatedProduct = await Product.findOneAndUpdate({ _id: id }, data, {
+    runValidators: true,
+    new: true,
+  });
   return updatedProduct;
 };
 
@@ -25,7 +28,6 @@ exports.deleteSingleProductService = async (id) => {
   return result;
 };
 
-// TODO: Delete Many
 exports.deleteManyProductService = async (ids) => {
   const result = await Product.deleteMany({ _id: ids });
   return result;

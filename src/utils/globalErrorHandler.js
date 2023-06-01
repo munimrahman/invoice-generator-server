@@ -1,8 +1,14 @@
 const globalErrorHandler = (err, req, res, next) => {
   console.info('**********Global Error Handler**********');
-  console.error(err.message);
+  console.error(err.status);
   if (err.name === 'ValidationError') {
     return res.status(400).json({
+      success: false,
+      message: err.message,
+    });
+  }
+  if (err.status === 404) {
+    return res.status(404).json({
       success: false,
       message: err.message,
     });

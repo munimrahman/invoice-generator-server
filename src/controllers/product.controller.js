@@ -50,7 +50,7 @@ const getManyProducts = catchErrors(async (req, res, next) => {
 const deleteSingleProduct = catchErrors(async (req, res, next) => {
   const { id } = req.params;
   const result = await productService.deleteSingleProductService(id);
-  // TODO: if no response response should be 204
+
   res.status(200).send({
     success: true,
     message: 'Product deleted successfully',
@@ -63,7 +63,6 @@ const deleteManyProducts = catchErrors(async (req, res, next) => {
 
   const result = await productService.deleteManyProductService(ids);
 
-  // TODO: if no response response should be 204
   res.status(200).send({
     success: true,
     message: 'Products deleted successfully',

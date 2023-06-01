@@ -67,8 +67,8 @@ const userSchema = new Schema(
     },
     status: {
       type: String,
-      default: 'inactive',
       enum: ['active', 'inactive', 'blocked'],
+      default: 'inactive',
     },
 
     confirmationToken: String,

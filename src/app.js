@@ -11,13 +11,13 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('tiny'));
 
-app.get('/', (req, res) => {
-  res.send('Hello From Invoice Generator Server');
-});
-
-app.use('', router);
+app.use('/', router);
 
 app.all('*', notFoundHandler);
 app.use(globalErrorHandler);
+
+app.get('/', (req, res) => {
+  res.send('Hello From Invoice Generator Server');
+});
 
 module.exports = app;
