@@ -1,23 +1,27 @@
 const Task = require('../models/Task');
 
 exports.createTaskService = async (data) => {
-  const product = await Task.create(data);
-  return product;
+  const task = await Task.create(data);
+  return task;
 };
 
 exports.editTaskService = async (id, data) => {
-  const updatedProduct = await Task.findByIdAndUpdate(id, data, { runValidators: true });
-  return updatedProduct;
+  const updatedTask = await Task.findByIdAndUpdate(id, data, {
+    runValidators: true,
+    new: true,
+  });
+  return updatedTask;
 };
 
 exports.getSingleTaskService = async (id) => {
-  const product = await Task.findById(id);
-  return product;
+  const task = await Task.findById(id);
+  console.log(task);
+  return task;
 };
 
 exports.getManyTaskService = async () => {
-  const products = await Task.find({});
-  return { products, productsCount: products.length };
+  const tasks = await Task.find({});
+  return { tasks, tasksCount: tasks.length };
 };
 
 exports.deleteSingleTaskService = async (id) => {
@@ -25,8 +29,7 @@ exports.deleteSingleTaskService = async (id) => {
   return result;
 };
 
-// TODO: Delete Many
-exports.deleteManyTaskService = async (id) => {
-  const result = await Task.deleteMany();
+exports.deleteManyTaskService = async (ids) => {
+  const result = await Task.deleteMany({ _id: ids });
   return result;
 };
