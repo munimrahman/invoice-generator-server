@@ -15,7 +15,6 @@ exports.editTaskService = async (id, data) => {
 
 exports.getSingleTaskService = async (id) => {
   const task = await Task.findById(id);
-  console.log(task);
   return task;
 };
 
