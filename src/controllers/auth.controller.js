@@ -60,4 +60,7 @@ const logIn = catchErrors(async (req, res, next) => {
   });
 });
 
-module.exports = { signUp };
+module.exports = {
+  signUp,
+  logIn,
+};
