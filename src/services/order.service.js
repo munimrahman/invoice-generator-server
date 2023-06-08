@@ -14,7 +14,7 @@ exports.editOrderService = async (id, data) => {
 };
 
 exports.getSingleOrderService = async (id) => {
-  const order = await Order.findById(id);
+  const order = await Order.findById(id).populate('products');
   return order;
 };
 

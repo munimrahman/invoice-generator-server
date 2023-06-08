@@ -32,16 +32,41 @@ const orderSchema = new Schema(
     },
     products: [
       {
-        type: Schema.Types.ObjectId,
-        ref: 'Product',
+        name: {
+          type: String,
+          required: true,
+        },
+        productCode: {
+          type: String,
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+        productPrice: {
+          type: Number,
+          required: true,
+        },
       },
     ],
+    subTotal: {
+      type: Number,
+      required: true,
+    },
+    discount: {
+      type: Number,
+    },
+    total: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Order = mongoose.model('User', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
