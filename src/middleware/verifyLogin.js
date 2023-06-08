@@ -19,7 +19,7 @@ const verifyLogin = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(400).json({
+    res.status(401).json({
       success: false,
       error: 'Invalid Token',
     });

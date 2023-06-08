@@ -2,7 +2,6 @@
 const authServices = require('../services/auth.service');
 const catchErrors = require('../utils/catchError');
 const generateJwtToken = require('../utils/generateJwtToken');
-const User = require('../models/User');
 
 const signUp = catchErrors(async (req, res, next) => {
   const data = req.body;
