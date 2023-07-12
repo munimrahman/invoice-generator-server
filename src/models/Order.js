@@ -48,8 +48,20 @@ const orderSchema = new Schema(
           type: Number,
           required: true,
         },
+        amount: {
+          type: Number,
+          required: true,
+        },
       },
     ],
+    date: {
+      type: String,
+      required: true,
+    },
+    dueDate: {
+      type: String,
+      required: true,
+    },
     subTotal: {
       type: Number,
       required: true,
@@ -60,6 +72,16 @@ const orderSchema = new Schema(
     total: {
       type: Number,
       required: true,
+    },
+    note: {
+      type: String,
+    },
+    invoiceNumber: {
+      type: Number,
+      required: true,
+    },
+    paymentStatus: {
+      type: String,
     },
   },
   {

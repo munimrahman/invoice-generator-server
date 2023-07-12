@@ -41,7 +41,7 @@ const getManyTasks = catchErrors(async (req, res, next) => {
     message: 'Tasks retrieved successfully',
     data: {
       count: result.tasksCount,
-      products: result.tasks,
+      tasks: result.tasks,
     },
   });
 });

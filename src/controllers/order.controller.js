@@ -42,7 +42,7 @@ const getManyOrders = catchErrors(async (req, res, next) => {
     message: 'Orders retrieved successfully',
     data: {
       count: result.ordersCount,
-      Orders: result.orders,
+      orders: result.orders,
     },
   });
 });
